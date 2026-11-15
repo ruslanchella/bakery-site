@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тепло и Ваниль — Авторская кондитерская</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #FDF8F5;
+      --bg-card: #FFFFFF;
+      --bg-accent-soft: #F7ECE6;
+      --accent-caramel: #D98A6C;
+      --accent-caramel-dark: #B96B4E;
+      --accent-peach: #E8C5B0;
+      --text-chocolate: #3D281E;
+      --text-muted: #7B6357;
+      --border-light: #EFE2DA;
+      --shadow-soft: 0 12px 32px rgba(61, 40, 30, 0.06);
+      --shadow-hover: 0 18px 40px rgba(61, 40, 30, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-chocolate);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 248, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-chocolate);
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-caramel), var(--accent-peach));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(217, 138, 108, 0.35);
+    }
+
+    .logo-text span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .logo-text small {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-chocolate);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-caramel);
+    }
+
+    .cart-btn {
+      position: relative;
+      background: var(--text-chocolate);
+      color: #fff;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .cart-btn:hover {
+      background: var(--accent-caramel-dark);
+      transform: translateY(-1px);
+    }
+
+    .cart-badge {
+      background: var(--accent-caramel);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6px;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1240px;
+      margin: 28px auto 48px;
+      padding: 0 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(120deg, #F8ECE5 0%, #F3DFD3 100%);
+      border-radius: 28px;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 40px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--accent-caramel-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      margin-bottom: 18px;
+      color: var(--text-chocolate);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      background: var(--accent-caramel);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-caramel-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      aspect-ratio: 4 / 3;
+      background: #EEDAD0;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Filter Bar */
+    .catalog-section {
+      max-width: 1240px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-chocolate);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent-caramel);
+      color: var(--accent-caramel-dark);
+    }
+
+    .filter-btn.active {
+      background: var(--text-chocolate);
+      color: #fff;
+      border-color: var(--text-chocolate);
+    }
+
+    /* Category Block */
+    .category-group {
+      margin-bottom: 56px;
+    }
+
+    .category-group.hidden {
+      display: none;
+    }
+
+    .category-title {
+      font-size: 32px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .category-title span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+      gap: 26px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-img-box {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--bg-accent-soft);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .card-img-box img {
+      transform: scale(1.05);
+    }
+
+    .weight-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text-chocolate);
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-chocolate);
+      cursor: pointer;
+    }
+
+    .card-title:hover {
+      color: var(--accent-caramel-dark);
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .card-ingredients {
+      background: var(--bg-main);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      border: 1px dashed var(--accent-peach);
+    }
+
+    .card-ingredients strong {
+      color: var(--text-chocolate);
+      font-weight: 600;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-chocolate);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-details {
+      background: var(--bg-accent-soft);
+      color: var(--text-chocolate);
+      border: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-details:hover {
+      background: var(--accent-peach);
+    }
+
+    .btn-add {
+      background: var(--accent-caramel);
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-add:hover {
+      background: var(--accent-caramel-dark);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-chocolate);
+      color: #F7ECE6;
+      padding: 56px 24px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+
+    footer h3 {
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    footer p, footer li {
+      font-size: 14px;
+      color: #D8C5BC;
+      list-style: none;
+      margin-bottom: 8px;
+    }
+
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+      font-size: 13px;
+      color: #B49D92;
+    }
+
+    /* Modals & Drawers */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 21, 15, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: popIn 0.22s ease;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-chocolate);
+      z-index: 5;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .modal-content h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .modal-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--accent-caramel-dark);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    /* Cart Drawer */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 21, 15, 0.5);
+      z-index: 250;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .cart-overlay.open {
+      display: flex;
+    }
+
+    .cart-drawer {
+      width: 100%;
+      max-width: 420px;
+      background: var(--bg-main);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .cart-header h3 {
+      font-size: 28px;
+    }
+
+    .cart-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-item {
+      background: #fff;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .cart-item-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-info span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-main);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .order-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--text-chocolate);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      z-index: 300;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        padding: 36px 24px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">🥐</div>
+        <div class="logo-text">
+          <span>Тепло и Ваниль</span>
+          <small>Авторская кондитерская</small>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#catalog" onclick="filterCategory('all')">Весь каталог</a></li>
+        <li><a href="#catalog" onclick="filterCategory('cakes')">Торты</a></li>
+        <li><a href="#catalog" onclick="filterCategory('pastries')">Пирожные</a></li>
+        <li><a href="#catalog" onclick="filterCategory('bakery')">Выпечка</a></li>
+        <li><a href="#catalog" onclick="filterCategory('sweets')">Конфеты и макаронс</a></li>
+      </ul>
+
+      <button class="cart-btn" onclick="toggleCart(true)">
+        <span>Корзина</span>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Главный баннер -->
+  <section class="hero">
+    <div class="hero-card">
+      <div>
+        <span class="hero-tag">Натуральные ингредиенты • Ручная работа</span>
+        <h1>Десерты, созданные с любовью и ароматом свежей ванили</h1>
+        <p>Каждый день мы выпекаем воздушные круассаны на фермерском масле, собираем нежные бисквитные торты и готовим ремесленный шоколад без искусственных добавок.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn-primary">Выбрать десерты ↓</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" alt="Авторские десерты кондитерской Тепло и Ваниль" onerror="this.src='https://placehold.co/800x600/F3DFD3/3D281E?text=Тепло+и+Ваниль'">
+      </div>
+    </div>
+  </section>
+
+  <!-- Каталог продукции -->
+  <main class="catalog-section" id="catalog">
+    <div class="section-header">
+      <h2>Наш каталог сладостей</h2>
+      <p>Выберите раздел или посмотрите всю витрину наших свежих изделий</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all" onclick="filterCategory('all')">Все разделы (16)</button>
+      <button class="filter-btn" data-filter="cakes" onclick="filterCategory('cakes')">Авторские торты</button>
+      <button class="filter-btn" data-filter="pastries" onclick="filterCategory('pastries')">Пирожные и тарталетки</button>
+      <button class="filter-btn" data-filter="bakery" onclick="filterCategory('bakery')">Свежая выпечка и булочки</button>
+      <button class="filter-btn" data-filter="sweets" onclick="filterCategory('sweets')">Конфеты, зефир и макаронс</button>
+    </div>
+
+    <div id="catalog-container"></div>
+  </main>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Тепло и Ваниль</h3>
+        <p>Семейная кондитерская ремесленной выпечки и авторских десертов. Готовим к вашему столу ежедневно с 08:00 до 21:00.</p>
+      </div>
+      <div>
+        <h3>Контакты и адрес</h3>
+        <ul>
+          <li>ул. Цветочная, д. 14, кофейня-пекарня</li>
+          <li>Телефон: +7 (999) 123-45-67</li>
+          <li>Доставка по городу за 60 минут</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Наши принципы</h3>
+        <ul>
+          <li>Только сливочное масло 82,5%</li>
+          <li>Бельгийский шоколад Callebaut</li>
+          <li>Свежие ягоды и натуральная бурбонская ваниль</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Кондитерская «Тепло и Ваниль». Все права защищены.
+    </div>
+  </footer>
+
+  <!-- Модальное окно с подробным описанием -->
+  <div class="overlay" id="product-modal" onclick="closeModalOnBg(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-grid" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Боковая корзина -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCartOnBg(event)">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>Ваш заказ</h3>
+        <button class="modal-close" style="position:static;" onclick="toggleCart(false)">×</button>
+      </div>
+      <div class="cart-items" id="cart-items-list"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Итого:</span>
+          <span id="cart-total-price">0 ₽</span>
+        </div>
+        <input type="text" id="customer-name" class="order-input" placeholder="Ваше имя">
+        <input type="tel" id="customer-phone" class="order-input" placeholder="Телефон для подтверждения">
+        <button class="btn-primary" style="width:100%; justify-content:center;" onclick="submitOrder()">Оформить предзаказ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Добавлено в корзину</div>
+
+  <script>
+    const catalogData = [
+      {
+        id: 'cakes',
+        title: 'Авторские торты',
+        subtitle: 'Целые торты для семейного праздника или ужина',
+        items: [
+          {
+            id: 1,
+            name: 'Фисташковый торт с малиной',
+            weight: '1 200 г',
+            kcal: '340 ккал / 100 г',
+            price: 3450,
+            img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80',
+            desc: 'Воздушные фисташковые бисквиты с нежным кремом на основе сыра маскарпоне и конфи из свежей садовой малины.',
+            ingredients: 'Мука пшеничная в/с, паста иранской фисташки 100%, сыр маскарпоне, сливки 33%, малина свежая, яйца фермерские, сахар тростниковый.'
+          },
+          {
+            id: 2,
+            name: 'Медовик с солёной карамелью',
+            weight: '1 100 г',
+            kcal: '385 ккал / 100 г',
+            price: 2890,
+            img: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80',
+            desc: 'Тончайшие ароматные коржи на гречишном мёде, пропитанные сметанно-сливочным кремом с прослойкой домашней солёной карамели.',
+            ingredients: 'Мёд гречишный натуральный, масло сливочное 82,5%, сметана фермерская 25%, сливки 33%, мука пшеничная, морская соль, сода.'
+          },
+          {
+            id: 3,
+            name: 'Шоколадный трюфель «Три шоколада»',
+            weight: '1 300 г',
+            kcal: '410 ккал / 100 г',
+            price: 3690,
+            img: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80',
+            desc: 'Влажный шоколадный бисквит брауни и три шелковистых мусса на основе тёмного, молочного и белого бельгийского шоколада.',
+            ingredients: 'Шоколад Callebaut (тёмный 70%, молочный, белый), сливки 33%, какао-порошок алкализованный, яйца, масло сливочное, желатин.'
+          },
+          {
+            id: 4,
+            name: 'Классический «Наполеон» с ванилью',
+            weight: '1 150 г',
+            kcal: '370 ккал / 100 г',
+            price: 2950,
+            img: 'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=700&q=80',
+            desc: 'Хрустящие слоёные коржи ручной раскатки с заварным кремом «Пломбир» на натуральных стручках мадагаскарской ванили.',
+            ingredients: 'Масло сливочное 82,5%, молоко цельное, желтки яичные, мука пшеничная, сливки 33%, стручок бурбонской ванили, сахар.'
+          }
+        ]
+      },
+      {
+        id: 'pastries',
+        title: 'Пирожные и тарталетки',
+        subtitle: 'Порционные десерты к чашке утреннего кофе',
+        items: [
+          {
+            id: 5,
+            name: 'Эклер «Мадагаскарская ваниль»',
+            weight: '110 г',
+            kcal: '310 ккал / 100 г',
+            price: 320,
+            img: 'https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=700&q=80',
+            desc: 'Заварное пирожное с тонкой хрустящей корочкой, наполненное нежным ванильным кремом и покрытое белой шоколадной глазурью.',
+            ingredients: 'Молоко фермерское, масло сливочное 82,5%, яйца, мука в/с, белый шоколад, натуральная ваниль, сахарная пудра.'
+          },
+          {
+            id: 6,
+            name: 'Тарталетка «Ягодная корзинка»',
+            weight: '145 г',
+            kcal: '280 ккал / 100 г',
+            price: 410,
+            img: 'https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=700&q=80',
+            desc: 'Рассыпчатая песочная корзинка с миндальной мукой, нежный крем-чиз и горка отборной свежей голубики, клубники и ежевики.',
+            ingredients: 'Миндальная мука, масло сливочное, творожный сыр, сливки, клубника, голубика, ежевика, тростниковый сахар.'
+          },
+          {
+            id: 7,
+            name: 'Пирожное «Павлова» с манго',
+            weight: '150 г',
+            kcal: '265 ккал / 100 г',
+            price: 430,
+            img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80',
+            desc: 'Хрустящее снаружи и нежное как суфле внутри безе со взбитыми сливками, сыром маскарпоне и тропическим кули из манго и маракуйи.',
+            ingredients: 'Белок яичный, сахарная пудра, сыр маскарпоне, сливки 33%, пюре манго Альфонсо, пюре маракуйи, свежая мята.'
+          },
+          {
+            id: 8,
+            name: 'Шу с фундучным пралине',
+            weight: '125 г',
+            kcal: '355 ккал / 100 г',
+            price: 360,
+            img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80',
+            desc: 'Воздушная профитроль под сахарным кракелином с кремом муслин и хрустящей сердцевиной из карамелизированного фундука.',
+            ingredients: 'Фундук обжаренный, масло сливочное, молоко, яйца, мука пшеничная, тростниковый сахар, сливки 33%.'
+          }
+        ]
+      },
+      {
+        id: 'bakery',
+        title: 'Свежая выпечка и булочки',
+        subtitle: 'Достаём из печи каждые два часа',
+        items: [
+          {
+            id: 9,
+            name: 'Круассан миндальный с франжипаном',
+            weight: '135 г',
+            kcal: '420 ккал / 100 г',
+            price: 340,
+            img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80',
+            desc: 'Слоёный круассан на французском сливочном масле с ароматным миндальным кремом внутри и хрустящими миндальными лепестками сверху.',
+            ingredients: 'Мука пшеничная, масло сливочное 82,5%, миндальная мука, лепестки миндаля, яйца, молоко, дрожжи, сахарная пудра.'
+          },
+          {
+            id: 10,
+            name: 'Синнабон с цейлонской корицей',
+            weight: '180 г',
+            kcal: '390 ккал / 100 г',
+            price: 310,
+            img: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=700&q=80',
+            desc: 'Пышная сдобная булочка, щедро пропитанная ароматной цейлонской корицей и покрытая тающей глазурью из сливочного сыра.',
+            ingredients: 'Мука в/с, молоко, масло сливочное, корица цейлонская молотая, сахар коричневый, сливочный сыр, сахарная пудра.'
+          },
+          {
+            id: 11,
+            name: 'Бриошь с шоколадом и апельсином',
+            weight: '140 г',
+            kcal: '365 ккал / 100 г',
+            price: 290,
+            img: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=700&q=80',
+            desc: 'Нежнейшая сдобная булочка бриошь с каплями тёмного бельгийского шоколада и ароматными апельсиновыми цукатами.',
+            ingredients: 'Мука пшеничная, масло сливочное, яйца, шоколад тёмный 54%, цедра и цукаты красного апельсина, мёд, дрожжи.'
+          },
+          {
+            id: 12,
+            name: 'Даниш с персиком и заварным кремом',
+            weight: '150 г',
+            kcal: '330 ккал / 100 г',
+            price: 330,
+            img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80',
+            desc: 'Хрустящая слоёная слойка с ванильным заварным кремом и сочными дольками спелого персика под абрикосовым конфитюром.',
+            ingredients: 'Тесто слоёное дрожжевое, персик консервированный, молоко, желтки яичные, масло сливочное, абрикосовый джем.'
+          }
+        ]
+      },
+      {
+        id: 'sweets',
+        title: 'Конфеты, зефир и макаронс',
+        subtitle: 'Идеально для подарка в фирменной коробке',
+        items: [
+          {
+            id: 13,
+            name: 'Набор макаронс «Прованс» (6 шт.)',
+            weight: '180 г',
+            kcal: '380 ккал / 100 г',
+            price: 960,
+            img: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=700&q=80',
+            desc: 'Шесть миндальных пирожных с нежными ганашами: лаванда-черника, фисташка, солёная карамель, малина, манго и тёмный шоколад.',
+            ingredients: 'Миндальная мука мелкого помола, белок яичный, сахарная пудра, белый и тёмный шоколад, сливки 33%, ягодные пюре, цветы лаванды.'
+          },
+          {
+            id: 14,
+            name: 'Трюфели ручной работы (9 шт.)',
+            weight: '160 г',
+            kcal: '490 ккал / 100 г',
+            price: 1150,
+            img: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=700&q=80',
+            desc: 'Бархатистые шоколадные трюфели с тремя вкусами: классический коньячный ганаш в какао, обжаренный пекан и малина в сублимированной ягоде.',
+            ingredients: 'Шоколад Callebaut 70,5%, сливки фермерские 33%, масло сливочное, какао-порошок, орех пекан, сублимированная малина.'
+          },
+          {
+            id: 15,
+            name: 'Зефир ягодный на яблочном пюре',
+            weight: '220 г',
+            kcal: '295 ккал / 100 г',
+            price: 540,
+            img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=700&q=80',
+            desc: 'Невесомый домашний зефир на натуральном агар-агаре из печёных яблок Антоновка и пюре чёрной смородины с лёгкой кислинкой.',
+            ingredients: 'Пюре яблочное натуральное, пюре чёрной смородины, белок пастеризованный, сахар, агар-агар, сахарная пудра.'
+          },
+          {
+            id: 16,
+            name: 'Конфеты «Птичье молоко» в шоколаде',
+            weight: '200 г',
+            kcal: '415 ккал / 100 г',
+            price: 790,
+            img: 'https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=80',
+            desc: 'Нежнейшее сливочно-ванильное суфле на сгущённом молоке и агар-агаре, покрытое тонким хрустящим слоем тёмного шоколада.',
+            ingredients: 'Масло сливочное 82,5%, молоко сгущённое с сахаром, белок яичный, агар-агар, шоколад тёмный 60%, натуральная ваниль.'
+          }
+        ]
+      }
+    ];
+
+    let cart = [];
+
+    function renderCatalog() {
+      const container = document.getElementById('catalog-container');
+      container.innerHTML = catalogData.map(cat => `
+        <section class="category-group" data-category="${cat.id}">
+          <div class="category-title">
+            <h3>${cat.title}</h3>
+            <span>${cat.subtitle}</span>
+          </div>
+          <div class="products-grid">
+            ${cat.items.map(item => `
+              <article class="product-card">
+                <div class="card-img-box" onclick="openModal(${item.id})">
+                  <img src="${item.img}" alt="${item.name}" loading="lazy"
+                       onerror="this.src='https://placehold.co/600x450/F7ECE6/3D281E?text=${encodeURIComponent(item.name)}'">
+                  <span class="weight-badge">${item.weight}</span>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title" onclick="openModal(${item.id})">${item.name}</h4>
+                  <p class="card-desc">${item.desc}</p>
+                  <div class="card-ingredients">
+                    <strong>Состав:</strong> ${item.ingredients}
+                  </div>
+                  <div class="card-footer">
+                    <span class="price">${item.price.toLocaleString('ru-RU')} ₽</span>
+                    <div class="card-actions">
+                      <button class="btn-details" onclick="openModal(${item.id})">Подробнее</button>
+                      <button class="btn-add" onclick="addToCart(${item.id})">В корзину</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `).join('');
+    }
+
+    function filterCategory(catId) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === catId);
+      });
+
+      document.querySelectorAll('.category-group').forEach(group => {
+        if (catId === 'all' || group.dataset.category === catId) {
+          group.classList.remove('hidden');
+        } else {
+          group.classList.add('hidden');
+        }
+      });
+    }
+
+    function findProductById(id) {
+      for (const cat of catalogData) {
+        const found = cat.items.find(item => item.id === id);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function openModal(id) {
+      const item = findProductById(id);
+      if (!item) return;
+
+      const modalBody = document.getElementById('modal-body');
+      modalBody.innerHTML = `
+        <img class="modal-img" src="${item.img}" alt="${item.name}"
+             onerror="this.src='https://placehold.co/600x600/F7ECE6/3D281E?text=${encodeURIComponent(item.name)}'">
+        <div class="modal-content">
+          <div>
+            <h3>${item.name}</h3>
+            <div class="modal-meta">
+              <span>Вес: ${item.weight}</span>
+              <span>•</span>
+              <span>${item.kcal}</span>
+            </div>
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">${item.desc}</p>
+            <div class="card-ingredients">
+              <strong>Полный состав:</strong> ${item.ingredients}
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-light);">
+            <span style="font-size:22px; font-weight:700;">${item.price.toLocaleString('ru-RU')} ₽</span>
+            <button class="btn-primary" onclick="addToCart(${item.id}); closeModal();">Добавить в заказ</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('product-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('product-modal').classList.remove('open');
+    }
+
+    function closeModalOnBg(e) {
+      if (e.target.id === 'product-modal') closeModal();
+    }
+
+    function addToCart(id) {
+      const item = findProductById(id);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`«${item.name}» добавлен в корзину`);
+    }
+
+    function changeQty(id, delta) {
+      const idx = cart.findIndex(c => c.id === id);
+      if (idx === -1) return;
+
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      document.getElementById('cart-count').textContent = totalCount;
+      document.getElementById('cart-total-price').textContent = `${totalPrice.toLocaleString('ru-RU')} ₽`;
+
+      const list = document.getElementById('cart-items-list');
+      if (cart.length === 0) {
+        list.innerHTML = `<p style="text-align:center; color:var(--text-muted); margin-top:40px;">Ваша корзина пока пуста. Выберите любимые десерты из каталога!</p>`;
+        return;
+      }
+
+      list.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <span>${item.price.toLocaleString('ru-RU')} ₽ × ${item.qty}</span>
+          </div>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+            <span style="font-weight:600; min-width:18px; text-align:center;">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCart(open) {
+      document.getElementById('cart-overlay').classList.toggle('open', open);
+    }
+
+    function closeCartOnBg(e) {
+      if (e.target.id === 'cart-overlay') toggleCart(false);
+    }
+
+    function submitOrder() {
+      if (cart.length === 0) {
+        showToast('Добавьте хотя бы один десерт в корзину');
+        return;
+      }
+      const name = document.getElementById('customer-name').value.trim();
+      const phone = document.getElementById('customer-phone').value.trim();
+      if (!name || !phone) {
+        showToast('Пожалуйста, укажите имя и телефон');
+        return;
+      }
+
+      cart = [];
+      updateCartUI();
+      document.getElementById('customer-name').value = '';
+      document.getElementById('customer-phone').value = '';
+      toggleCart(false);
+      showToast(`Спасибо, ${name}! Заказ принят, скоро свяжемся с вами.`);
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    renderCatalog();
+    updateCartUI();
+  </script>
+</body>
+</html>
